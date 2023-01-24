@@ -38,6 +38,8 @@ const voice = document.querySelector(".voice");
             voice.play();
             document.querySelector('.endscore').textContent = "TOTAL SCORE: " + score
 ;
+            document.querySelector('.company').textContent = "made by Sefa Kurtuldu©  "
+          
             
             
             
