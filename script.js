@@ -16,7 +16,7 @@ document.querySelector(".top-score").textContent =
   localStorage.getItem("topScore") || 0;
 
 
-// const voice = document.querySelector(".voice");
+const voice = document.querySelector(".voice");
       
   
       // counting the number of guesses
@@ -31,17 +31,21 @@ document.querySelector(".top-score").textContent =
           if(myNumber == computersNumber)
           {    
             alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
-                  + score + " GUESS ");
+            + score + " GUESS ");
             document.querySelector('.score').textContent = score
-            document.querySelector('.top-score').textContent = score
+            // document.querySelector('.top-score').textContent = score
             document.querySelector(".number").textContent = computersNumber;
+            if (score > localStorage.getItem("topScore")) {
+            localStorage.setItem("topScore", score);
+            document.querySelector(".top-score").textContent = score;
+           }
             // document.querySelector(".containers").style.display = "none";
             // document.body.style.backgroundImage = "url('well-done-3182_512.gif')"
             // document.body.style.backgroundPosition = "center"
             // document.body.style.backgroundRepeat = "no-repeat"
             // document.body.style.backgroundSize = "cover"
-            // document.body.style.backgroundColor = "red"
-            // voice.play();
+            document.body.style.backgroundColor = "red"
+            voice.play();
            document.querySelector('.endscore').textContent = "TOTAL SCORE: " + score
  ;
             document.querySelector('.company').textContent = "made by Sefa Kurtuldu©  "
@@ -79,10 +83,6 @@ document.querySelector(".top-score").textContent =
         if (tus.keyCode === 13) {
         document.querySelector(".check").click();;
   } }
-      if (score > localStorage.getItem("topScore")) {
-      localStorage.setItem("topScore", score);
-      document.querySelector(".top-score").textContent = score;
-    }
 }
 // -----------again---------------
 
@@ -96,6 +96,8 @@ document.querySelector(".top-score").textContent =
     document.querySelector('.score').textContent = score
     document.querySelector(".guess").value = "";
     document.querySelector('.company').textContent =""
-     document.querySelector('.endscore').textContent = ""
+    document.querySelector('.endscore').textContent = ""
+    voice.pause();
+    	
  ;
   }
